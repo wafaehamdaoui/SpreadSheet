@@ -21,6 +21,10 @@ In the file manager, select the files to be added.
 ## Part One:
 
  the SpreadSheet Application is in the MainWindow class, which inherits QMainWindow. QMainWindow provides the framework for windows that have menus, toolbars, dock windows, and a status bar. The application provides File, Edit, Tools, Options, and Help entries in the menu bar, with the following Actions:
+ 
+ ![image](https://user-images.githubusercontent.com/75392302/146655230-ac274206-414c-4c58-b7f4-518acc59c4b2.png)
+
 
 
 ![Screenshot (14)](https://user-images.githubusercontent.com/75392302/146655196-b34b9e5b-1f3e-4334-9336-82d4878420af.png)
+![Screenshot (15)](https://user-images.githubusercontent.com/75392302/146655239-78f7e04e-5abd-4fca-80ed-840416b2b0cd.png)
