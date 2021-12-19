@@ -685,8 +685,8 @@ So we need to  connect every action to its proper slot in the makeConnexions fun
 ![image](https://user-images.githubusercontent.com/75392302/146659829-854181b7-237c-4ae3-b497-d0eb48d9dfd2.png)
 ![image](https://user-images.githubusercontent.com/75392302/146659867-7c4a5c47-5a3d-4b8b-8af6-f2342e2f4865.png)
 
-![image](https://user-images.githubusercontent.com/75392302/146659898-31609d42-9d69-4209-98fd-f9853250f4ae.png)
-![image](https://user-images.githubusercontent.com/75392302/146659913-0a2f1e15-69e1-4714-b11d-1ea096b4540c.png)
+![image](https://user-images.githubusercontent.com/75392302/146660299-22362ade-97b5-4ff2-a9f6-8ab2e4fbe909.png)
+![image](https://user-images.githubusercontent.com/75392302/146660278-9728ebe5-b0c7-45d4-990f-82bb19a59b66.png)
 
 
 ***show Grid***
