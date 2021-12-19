@@ -680,7 +680,7 @@ So we need to  connect every action to its proper slot in the makeConnexions fun
 ```
 **Tests**
 ![image](https://user-images.githubusercontent.com/75392302/146659763-0aba4a9a-0940-4d0a-9a69-c41b3525f7f5.png)
-![image](https://user-images.githubusercontent.com/75392302/146659782-32fd120c-eca2-4d78-bae3-80eea3d2eacf.png)
+![image](https://user-images.githubusercontent.com/75392302/146660325-1f77a47d-5d3d-4dab-a807-3145608a288b.png)
 
 ![image](https://user-images.githubusercontent.com/75392302/146659829-854181b7-237c-4ae3-b497-d0eb48d9dfd2.png)
 ![image](https://user-images.githubusercontent.com/75392302/146659867-7c4a5c47-5a3d-4b8b-8af6-f2342e2f4865.png)
