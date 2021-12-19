@@ -409,7 +409,7 @@ void SpreadSheet::openFile()
  
  finally we show the contenent in SpreadSheet.
  
- ***Open Recent File**
+ ***Open Recent File***
  ```cpp
  void SpreadSheet::OpenRecentFiles()
 {
@@ -501,7 +501,7 @@ void SpreadSheet::openFile()
  The Paste() slot is invoked when the user clicks Edit|Paste.
  So we just set a copied cell in the current cell .
  
- ***Delete**
+ ***Delete***
  ```cpp
  void SpreadSheet::Delete(){
     i=spreadsheet->currentRow();
@@ -513,7 +513,7 @@ void SpreadSheet::openFile()
  The Delete() slot is invoked when the user clicks Edit|Copy.
  So we just set an impty String in the current cell .
  
- ***Cut**
+ ***Cut***
  ```cpp
  void SpreadSheet::Cut(){
     Copy();
@@ -555,7 +555,7 @@ And we add a public Getter for the line edit Text to get the cell address:
      }
 ```
 
-**Now we are setup to create the interesting connexion between the goCell action:**
+**Now we are setup to create the interesting connexion between the gocell action and the gocell slot:**
 
 First we will create the proper slot called goCellSlot to respond to the action trigger.
 
@@ -605,7 +605,110 @@ Here is the implementation of goCellSlot() function:
 ![image](https://user-images.githubusercontent.com/75392302/146659292-8c6c4aa2-a873-4a14-a53b-47f5c84ea7e3.png)
 
 
-### ♥Find Dialog
+### Find Dialog
+
+This dialog prompts the user for a input and seek a cell that contains the entered text.
+
+This function point to an enter cell .
+ 
+ First we Create a Form Class,
+ 
+ Using the designer obtain the following the form:
+
+![image](https://user-images.githubusercontent.com/75392302/146659354-f40417b1-3b17-43d6-aaf4-d45f12ffc8f5.png)
+
+And we add a public Getter for the line edit Text to get the cell address:
+```cpp
+QString Find::find() const
+     {
+         return ui->lineEdit->text();
+     }
+```
+
+**Now we are setup to create the interesting connexion between the find_function slot and find actions :**
+
+First we will create the proper slot called goCellSlot to respond to the action trigger.
+
+ ```cpp
+ private slots:
+ void find_function();           
+ ```
+Then we connect the action to its proper slot in the makeConnexions function:
+```cpp
+connect(find, &QAction::triggered, this, &SpreadSheet::find_function);
+```
+
+Here is the implementation of goCellSlot() function:
+
+```cpp
+void SpreadSheet::find_function(){
+
+    //bar d'outil
+    statusBar()->showMessage("Searching",10000);
+
+     //Creating the dialog
+     Find D;
+
+     //Executing the dialog and storing the user response
+     auto reply = D.exec();
+
+     //Checking if the dialog is accepted
+     if(reply == Find::Accepted)
+     {
+
+         //Getting the search text
+         auto Find = D.find();
+
+         for(int row=spreadsheet->rowCount()-1; row>=0; row--){
+             for(int col=spreadsheet->columnCount()-1;col>=0;col--){
+                 if(spreadsheet->item(row,col)){
+                     if(spreadsheet->item(row,col)->text().contains(Find)){
+                         spreadsheet->setCurrentCell(row, col);
+                    }
+                 }
+             }
+         }
+     }
+}
+```
+Here is a simple test:
+
+![image](https://user-images.githubusercontent.com/75392302/146659551-62665fc1-7c52-4fe1-b611-9361c5c94642.png)
+![image](https://user-images.githubusercontent.com/75392302/146659560-5f4b0923-73fd-49c9-aee7-5561f227df4e.png)
+
+***select***
+for this action we will use QTableWidget slots. We have:
+
+ selectAll() to select all cells,
+ 
+ selectRow() to select all rows,
+ 
+ selectColumn() to select all columns.
+ 
+So we need to  connect every action to its proper slot in the makeConnexions function:
+```cpp
+//  Connexion for the  select all/row/column action
+   connect(all, &QAction::triggered,
+           spreadsheet, &QTableWidget::selectAll);
+
+   connect(row, &QAction::triggered,
+           spreadsheet, &QTableWidget::selectRow);
+
+   connect(Column, &QAction::triggered,
+           spreadsheet, &QTableWidget::selectColumn);
+
+```
+**Tests**
+![image](https://user-images.githubusercontent.com/75392302/146659763-0aba4a9a-0940-4d0a-9a69-c41b3525f7f5.png)
+![image](https://user-images.githubusercontent.com/75392302/146659782-32fd120c-eca2-4d78-bae3-80eea3d2eacf.png)
+
+![image](https://user-images.githubusercontent.com/75392302/146659829-854181b7-237c-4ae3-b497-d0eb48d9dfd2.png)
+![image](https://user-images.githubusercontent.com/75392302/146659867-7c4a5c47-5a3d-4b8b-8af6-f2342e2f4865.png)
+
+![image](https://user-images.githubusercontent.com/75392302/146659898-31609d42-9d69-4209-98fd-f9853250f4ae.png)
+![image](https://user-images.githubusercontent.com/75392302/146659913-0a2f1e15-69e1-4714-b11d-1ea096b4540c.png)
+
+
 
 
 
