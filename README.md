@@ -133,24 +133,6 @@ void SpreadSheet::makeConnexions()
     connect(newFile, &QAction::triggered,
             this, &SpreadSheet::NewFile);
 
-
-   //  Connexion for the  select all/row/column action
-   connect(all, &QAction::triggered,
-           spreadsheet, &QTableWidget::selectAll);
-
-   connect(row, &QAction::triggered,
-           spreadsheet, &QTableWidget::selectRow);
-
-   connect(Column, &QAction::triggered,
-           spreadsheet, &QTableWidget::selectColumn);
-
-
-
-
-   // Connection for the  show grid
-   connect(showGrid, &QAction::triggered,
-           spreadsheet, &QTableWidget::setShowGrid);
-
    //Connection for the exit button
    connect(exit, &QAction::triggered, this, &SpreadSheet::close);
 
@@ -163,12 +145,6 @@ void SpreadSheet::makeConnexions()
 
    // Connection for the  aboutQt
    connect(aboutQt, &QAction::triggered, this,&SpreadSheet::about_qt);
-
-   //Connextion between the gocell action and the gocell slot
-   connect(goCell, &QAction::triggered, this, &SpreadSheet::goCellSlot);
-
-   //Connextion between the find action and the find_funtion slot
-   connect(find, &QAction::triggered, this, &SpreadSheet::find_function);
 
    //Connexion for the saveFile
       connect(save, &QAction::triggered, this, &SpreadSheet::saveSlot);
@@ -708,6 +684,19 @@ So we need to  connect every action to its proper slot in the makeConnexions fun
 ![image](https://user-images.githubusercontent.com/75392302/146659898-31609d42-9d69-4209-98fd-f9853250f4ae.png)
 ![image](https://user-images.githubusercontent.com/75392302/146659913-0a2f1e15-69e1-4714-b11d-1ea096b4540c.png)
 
+
+***show Grid***
+
+Select if we want to show lines that appear between cells or not
+
+```cpp
+// Connection for the  show grid
+   connect(showGrid, &QAction::triggered,
+           spreadsheet, &QTableWidget::setShowGrid);
+```
+
+![image](https://user-images.githubusercontent.com/75392302/146660056-c9ba2b24-3cb2-496e-b394-13233219ea68.png)
+![image](https://user-images.githubusercontent.com/75392302/146660095-67ebc087-dd62-47da-a2fc-f719cb284006.png)
 
 
 
