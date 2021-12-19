@@ -300,6 +300,7 @@ void creatStatusBar()
 This part is about functions and slots implimentation 
 
 ***Close***
+
 When the user attempts to close the window, we call the private function Close().
 ```cpp
 void SpreadSheet::close()
@@ -312,6 +313,7 @@ void SpreadSheet::close()
 }
 ```
 ***NewFile***
+
 When the user wants to create a new window, we call the private function Close()
 ```cpp
 void SpreadSheet::NewFile()
@@ -323,6 +325,7 @@ void SpreadSheet::NewFile()
 The NewFile() method is very easy, all it does is create a new instance of our window and call its show() method to display it.
 
 ***OpenFile***
+
 ```cpp
 void SpreadSheet::openFile()
            {
@@ -450,6 +453,7 @@ void SpreadSheet::openFile()
  If the user clicks Cancel, the returned file name is empty, and we do nothing.
  
  ***About***
+ 
  The application's About box is done using one statement, using the QMessageBox::about() static function 
  ```cpp
  void SpreadSheet::about_me(){
